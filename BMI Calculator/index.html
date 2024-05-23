@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <style>
+        .main {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: larger;
+
+
+        }
+
+        .height {
+            display: inline-block;
+            box-sizing: border-box;
+            width: 250px;
+            height: 39px;
+            text-align: center;
+
+
+        }
+
+        .text {
+            border: 2px solid black;
+            margin: 10px;
+            padding: 10px;
+            width: 280px;
+            height: 30px;
+            font-size: large;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        button {
+
+            margin-top: 20px;
+            width: 200px;
+            height: 40px;
+            background-color: rgb(189, 219, 16);
+            font-size: larger;
+            font-weight: bolder;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        .guide {
+            padding-top: 10px;
+
+        }
+
+        .all {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid black;
+            width: fit-content;
+            margin: auto;
+            background-color: beige;
+        }
+
+        .result {
+            border: 2px solid black;
+            margin: 15px;
+            padding: 4px;
+            width: 90%;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: blueviolet;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 25px;
+            font-weight: 600;
+            color: rgb(243, 227, 206);
+
+        }
+        .bmi{
+            font-size: 50px;
+            font-weight: 900;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="all">
+        <h1>BMI Calculator</h1>
+        <div class="main">
+
+            <label for="cont" class="height">Height in Centimeter :</label>
+            <input type="number" class="text" id="cont" placeholder="Enter Height">
+            <br>
+            <label for="cont2" class="height">Weight in Kilograms :</label>
+            <input type="number" class="text" id="cont2" placeholder="Enter Weight">
+
+
+        </div>
+        <button class="btn">Calculate</button>
+        <div class="guide">
+            <h1>BMI Weight Guide</h1>
+            <h2>Under Weight = Less than 18.6</h2>
+            <h2>Normal Range = 18.5 and 24.9</h2>
+            <h2>Overweight = Greater than 24.9</h2>
+        </div>
+        <div class="bmi">
+            
+    </div>
+        <div class="result">
+
+        </div>
+    </div>
+
+</body>
+<script>
+    const bmi=document.querySelector(".bmi");
+    const result = document.querySelector(".result");
+    const btn = document.querySelector(".btn");
+    btn.addEventListener("click", () => {
+// toFixed is used to fix the decimal places here we used toFixed(2) to fix decimal upto 2 palces
+        const height = document.getElementById("cont").value;
+        const weight = document.getElementById("cont2").value;
+        let x =( weight / ((height / 100) ** 2)).toFixed(2);
+        if (x < 18.6) {
+            bmi.innerHTML=`<span>Your BMI is ${x} </span>`;
+            result.innerHTML = "Hey your are Under Weight!!"
+        }
+        else if (x > 18.6 && x < 24.9) {
+            result.innerHTML = "Hey You are in Normal Range!";
+            bmi.innerHTML=`<span>Your BMI is ${x} </span>`;
+
+        }
+        else if (x >= 24.9) {
+            result.innerHTML = "Hey You are Overweight!";
+            bmi.innerHTML=`<span>Your BMI is ${x}</span>`;
+        }
+        else { result.innerHTML = "YOU IDIOT FIRST ENTER YOUR DETAILS" }
+    })
+
+</script>
+
+</html>
