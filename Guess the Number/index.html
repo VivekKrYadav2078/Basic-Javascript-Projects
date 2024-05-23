@@ -73,7 +73,7 @@
 
 </body>
 <script>
-    let number=((Math.random()*100)+1).toFixed(0);
+    let number=parseInt((Math.random()*100)+1);
     const submit=document.querySelector(".submit");
     const guessSlot=document.querySelector(".guess");
     const remaining=document.querySelector(".lastResult");
@@ -153,7 +153,7 @@
         newGamebutton.style.backgroundColor="yellow";
         newGamebutton.style.border="2px solid black";
         newGamebutton.addEventListener("click",()=>{
-            number=((Math.random()*100)+1).toFixed(0);
+            number=parseInt((Math.random()*100)+1);
             prevGuess=[];
             numGuess=1;
             guessSlot.innerHTML=""
