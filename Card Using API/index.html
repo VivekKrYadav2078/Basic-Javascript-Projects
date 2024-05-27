@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card</title>
+    <style>
+        .card {
+            width: max-content;
+            height: max-content;
+            border: 2px solid black;
+            background-color: antiquewhite;
+            display: flex;
+            gap: 20px;
+            padding: 30px;
+
+        }
+
+        .img {
+            width: max-content;
+            border: 2px solid black;
+            height: max-content;
+        }
+
+        .details {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .name {
+            display: inline-block;
+            width: max-content;
+            height:max-content;
+            /* border: 2px solid red; */
+            text-align: center;
+            padding: 5px;
+            font-size: larger;
+            font-weight: bolder;
+
+        }
+
+        .followers {
+            display: inline-block;
+            width:max-content;
+            height:max-content;
+            /* border: 2px solid red; */
+            text-align: center;
+            padding: 5px;
+            font-size: larger;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <img src="https://www.gstatic.com/webp/gallery3/1.sm.png" alt="Image" class="img">
+        <div class="details">
+            
+            <span class="name">
+                
+            </span>
+            <span class="followers">
+                7522
+
+            </span>
+        </div>
+    </div>
+
+</body>
+<script>
+
+    const textname=document.querySelector(".name");
+    const follow=document.querySelector(".followers");
+
+    const requestUrl = "https://api.github.com/users/VivekKrYadav2078";
+    const xmr = new XMLHttpRequest();
+    xmr.open("GET", requestUrl);
+    // console.log(xmr);
+    xmr.send();
+    //    console.log( xmr.readyState);
+    xmr.onreadystatechange = function () {
+        let state = xmr.readyState;
+        const data = JSON.parse(this.responseText);
+        console.log(typeof data);
+        if (state===4) {
+            let followers=data.followers;
+            let name=data.login.toUpperCase();
+
+            textname.innerHTML=`NAME: ${ name}`;
+            follow.innerHTML=`Followers : ${followers}`;
+           
+            
+            
+        }
+
+    }
+    
+
+
+    // const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
+    // const xhr = new XMLHttpRequest();
+    // xhr.open('GET', requestUrl)
+    // xhr.onreadystatechange = function(){
+    //     console.log(xhr.readyState);
+    //     if (xhr.readyState === 4) {
+    //         const data = JSON.parse(this.responseText)
+    //         console.log(typeof data);
+    //         console.log(data.followers);
+    //     }
+    // }
+    // xhr.send();
+
+
+</script>
+
+</html>
