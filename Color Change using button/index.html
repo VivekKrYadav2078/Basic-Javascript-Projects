@@ -63,19 +63,19 @@
             text-align: center;
         }
 
-        .red {
+        #red {
             background-color: red;
         }
 
-        .blue {
+        #blue {
             background-color: blue;
         }
 
-        .yellow {
+        #yellow {
             background-color: yellow;
         }
 
-        .green {
+        #green {
             background-color: green;
         }
 
@@ -98,10 +98,10 @@
 
         <div class="colbtn">
             <h1>Color Scheme Switcher</h1>
-            <button class="red btn">RED</button>
-            <button class="blue btn">BLUE</button>
-            <button class="yellow btn">YELLOW</button>
-            <button class="green btn">GREEN</button>
+            <button class=" btn" id="red">RED</button>
+            <button class=" btn" id="blue">BLUE</button>
+            <button class=" btn" id="yellow">YELLOW</button>
+            <button class="btn" id="green">GREEN</button>
             <h1>Try clicking on one of the colors above to change the background color of this page!!</h1>
 
         </div>
@@ -109,18 +109,55 @@
 
 </body>
 <script>
-    const red = document.querySelector(".red");
-    const blue = document.querySelector(".blue");
-    const yellow = document.querySelector(".yellow");
-    const green = document.querySelector(".green");
+    // const red = document.querySelector(".red");
+    // const blue = document.querySelector(".blue");
+    // const yellow = document.querySelector(".yellow");
+    // const green = document.querySelector(".green");
 
+    // const colbtn = document.querySelector(".main");
+
+    // red.addEventListener("click", () => { colbtn.style.backgroundColor = "red" });
+    // blue.addEventListener("click", () => { colbtn.style.backgroundColor = "blue" });
+    // yellow.addEventListener("click", () => { colbtn.style.backgroundColor = "yellow" });
+    // green.addEventListener("click", () => { colbtn.style.backgroundColor = "green" });
+
+    // Another Method
+
+    const col=document.querySelectorAll(".btn");
     const colbtn = document.querySelector(".main");
+    
+    col.forEach(function (button) {
+        
+       
+        button.addEventListener("click", function (e) {
+            if (e.target.id==='red') {
+                colbtn.style.backgroundColor=e.target.id
+                
+            }
+            
+            if (e.target.id==='blue') {
+                colbtn.style.backgroundColor=e.target.id
+                
+            }
+            
+            if (e.target.id==='yellow') {
+                colbtn.style.backgroundColor=e.target.id
+                
+            }
+            
+            if (e.target.id==='green') {
+                colbtn.style.backgroundColor=e.target.id
+                
+            }
+            
+            
+        })
+        
 
-    red.addEventListener("click", () => { colbtn.style.backgroundColor = "red" });
-    blue.addEventListener("click", () => { colbtn.style.backgroundColor = "blue" });
-    yellow.addEventListener("click", () => { colbtn.style.backgroundColor = "yellow" });
-    green.addEventListener("click", () => { colbtn.style.backgroundColor = "green" });
-
+     
+        
+    });
+   
 </script>
 
 </html>

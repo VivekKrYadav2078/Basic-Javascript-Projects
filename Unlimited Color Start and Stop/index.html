@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlimited Color </title>
+    <style>
+        .clr{
+            background-color:hsla(0, 36%, 58%, 0.356);
+            color: black;
+            border: 2px solid black;
+            border-radius: 20px;
+            width: 150px;
+            height: 35px;
+        }
+        .btn{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        Click on start button to start changing background color!!
+    </h1>
+    <div class="btn">
+        <button class="start clr">Start</button>
+        <button class="stop clr">Stop</button>
+    </div>
+</body>
+<script>
+    let background=document.body;
+    const start=document.querySelector(".start");
+    const stop=document.querySelector(".stop");
+
+    const randomColor= function () {
+        let color="#";
+        const hex="123456789ABCDEF";
+
+        for (let i = 0; i < 6; i++) {
+           color += hex[Math.floor(Math.random()*16)];
+            
+            
+        }
+        return color;
+        
+        
+    };
+    console.log(randomColor);
+   
+
+    
+    
+
+    // let num=parseInt(Math.random()*1000);
+    
+
+    // start.addEventListener("click",function () {
+    //     const interval= setInterval(() => {
+    //         background.style.backgroundColor=`#441${num}`;
+            
+    //     }, 1000);
+       
+
+    // stop.addEventListener("click",function () {
+    //     clearInterval(interval);
+    //     background.style.backgroundColor=`hsla(0, 36%, 58%, 0.356)`;
+
+        
+        
+    // })
+
+
+        
+    // })
+
+
+
+
+
+
+</script>
+</html>
